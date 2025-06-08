@@ -35,6 +35,7 @@ function PatientPage({params}:PatientPageProps) {
     const [currentPatient,setCurrentPatient] = useState<Patient|null>(null)
     const [patientAppointments, setPatientAppointments] = useState<Appointment[]|null>(null)
 
+    // Initial moutning - find a patient and useState
     useEffect(() =>{
         
         const id:string = slug.slug
@@ -61,9 +62,8 @@ function PatientPage({params}:PatientPageProps) {
     }, [currentPatient]
     
     )
-    
 
-
+    //Alternative error check
     if (currentPatient == null){
         return "Patient Not Found"
     }

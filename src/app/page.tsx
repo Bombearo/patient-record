@@ -1,16 +1,13 @@
-"use client"
+
 import patients from "@/data/patients";
 import PatientRecord from "@/features/components/patientRecord";
-import {useState} from "react"
+
 
 import "./home.css"
 
 
 
 export default function Home() {
-  const [isHover, setHover] = useState(false)
-
-
 
 
   return (
