@@ -10,18 +10,3 @@
     background-color: whitesmoke;
 }
 
-.patient-record{
-    padding:2rem;
-    display: flex;
-}
-
-.patient-record > div{
-     padding:2rem;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-}
-
-.hover{
-    background-color: blanchedalmond;
-}

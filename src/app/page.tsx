@@ -1,6 +1,6 @@
 "use client"
 import patients from "@/data/patients";
-import Link from "next/link"
+import PatientRecord from "@/features/components/patientRecord";
 import {useState} from "react"
 
 import "./home.css"
@@ -9,6 +9,7 @@ import "./home.css"
 
 export default function Home() {
   const [isHover, setHover] = useState(false)
+
 
 
 
@@ -23,28 +24,7 @@ export default function Home() {
       </div>
       
       {patients.map((patient,index) =>(
-        
-          <Link href={`/patient/${patient.patientID}`}>
-          <div
-          key={index}
-          className={"patient-record"}
-        >
-          <div className="patient-ID">
-            
-            {patient.patientID}
-          </div>
-          <div className="patient-name">
-            
-            {patient.name}
-          </div>
-          <div className="patient-dob">
-          {patient.dob.toLocaleDateString()}
-
-          </div>
-          </div>
-          </Link>
-
-
+        <PatientRecord patient={patient} key={index}/>
       ))}
 
     </div>
