@@ -73,3 +73,5 @@ const appointments: Appointment[] = [
         patientID: "67890",
     }
 ];
+
+export default appointments
