@@ -20,7 +20,7 @@ export default function Home() {
       <div className="header patient-record">
           <div className="patient-ID">ID</div>
           <div className="patient-name">Name</div>
-          <div className="patient-dob">Date of birth</div>
+          <div className="patient-dob">Date of birth (dd/mm/yyyy)</div>
       </div>
       
       {patients.map((patient,index) =>(

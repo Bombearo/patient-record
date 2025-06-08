@@ -71,7 +71,7 @@ function PatientPage({params}:PatientPageProps) {
         <Link href="/">Go Back!</Link>
         <div>
             <h1>Patient Records for {currentPatient.name}</h1>
-            <p>Patient info below: ID, name and DOB</p>
+            <p>Patient info below: ID, name and DOB (dd/mm/yyyy)</p>
             <PatientRecord patient={currentPatient} key={0}/>
         </div>
         
