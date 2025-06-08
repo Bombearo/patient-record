@@ -1,53 +1,54 @@
+"use client"
 import patients from "@/data/patients";
 import Link from "next/link"
+import {useState} from "react"
 
 import "./home.css"
 
 
 
 export default function Home() {
+  const [isHover, setHover] = useState(false)
+
+
+
   return (
    <div className="main">
     <h1>Patient Records</h1>
-    <table className="patients">
-      <thead>
-  <tr className="header">
-          <th>ID</th>
-          <th>Name</th>
-          <th>Date of birth</th>
-
-        </tr>
-      </thead>
+    <div className="patients">
+      <div className="header patient-record">
+          <div className="patient-ID">ID</div>
+          <div className="patient-name">Name</div>
+          <div className="patient-dob">Date of birth</div>
+      </div>
       
-      <tbody>
-        
       {patients.map((patient,index) =>(
         
-        <tr
-          className="patient-record"
+          <Link href={`/patient/${patient.patientID}`}>
+          <div
+          key={index}
+          className={"patient-record"}
         >
-          
-          <td className="patient-ID">
-            <Link href={`/patient/${patient.patientID}`} key={index}></Link>
+          <div className="patient-ID">
+            
             {patient.patientID}
-          </td>
-          <td className="patient-name">
-            <Link href={`/patient/${patient.patientID}`} key={index}></Link>
+          </div>
+          <div className="patient-name">
+            
             {patient.name}
-          </td>
-          <td>
-        <Link href={`/patient/${patient.patientID}`} key={index}> 
+          </div>
+          <div className="patient-dob">
           {patient.dob.toLocaleDateString()}
 
+          </div>
+          </div>
           </Link>
-          </td>
 
-        </tr>
 
       ))}
-      </tbody>
 
-    </table>
     </div>
+    </div>
+
   );
 }
