@@ -3,8 +3,10 @@ import patients from "@/data/patients"
 import appointments from "@/data/appointments"
 import {Patient} from "@/types/patient"
 import { Appointment } from "@/types/appointment"
+
 import {useEffect, useState, use} from "react"
 import PatientRecord from "@/features/components/patientRecord"
+import Link from "next/link"
 import "./patient.css"
 
 interface PatientPageProps{
@@ -64,7 +66,7 @@ function PatientPage({params}:PatientPageProps) {
         return "Patient Not Found"
     }
     return (<div>
-        
+        <Link href="/">Go Back!</Link>
         <div>
             <h1>Patient Records for {currentPatient.name}</h1>
             <p>Patient info below: ID, name and DOB</p>
