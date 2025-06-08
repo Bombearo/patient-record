@@ -67,6 +67,7 @@ function PatientPage({params}:PatientPageProps) {
         
         <div>
             <h1>Patient Records for {currentPatient.name}</h1>
+            <p>Patient info below: ID, name and DOB</p>
             <PatientRecord patient={currentPatient} key={0}/>
         </div>
         
