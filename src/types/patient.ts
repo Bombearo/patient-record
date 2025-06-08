@@ -3,3 +3,5 @@ interface Patient{
     dob:Date,
     patientID:string
 }
+
+export type {Patient}
