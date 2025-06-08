@@ -53,7 +53,9 @@ function PatientPage({params}:PatientPageProps) {
 
             const apps = getAppointments(currentPatient.patientID)
             console.log(apps)
-            setPatientAppointments(apps)
+            if (apps.length > 0){
+                setPatientAppointments(apps)
+            }
         }
 
     }, [currentPatient]
@@ -75,14 +77,17 @@ function PatientPage({params}:PatientPageProps) {
         
         <div>
             <h2>Appointments for {currentPatient.name}</h2>
-            <div className="appointments">
+            {patientAppointments && <div className="appointments">
                 <div className="appointment-record">
                     <div>AppointmentID</div>
-                <div>Status</div>
-                <div>Date</div>
-                <div>Time</div>
+                    <div>Status</div>
+                    <div>Date</div>
+                    <div>Time</div>
 
                 </div>
+                </div>
+            }
+            
                 
             
             {patientAppointments && patientAppointments.map((app,index) => (
@@ -102,9 +107,12 @@ function PatientPage({params}:PatientPageProps) {
                     </div>
                 </div>
             ))}
+
+            {!patientAppointments && <div>No appointments found</div>}
+            
             </div>
         </div>
-    </div>  );
+        );
 }
 
 export default PatientPage;
