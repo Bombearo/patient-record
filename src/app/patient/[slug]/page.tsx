@@ -22,17 +22,19 @@ function getPatient(patientID:string){
 
 function PatientPage({params: {slug}}:PatientPageProps) {
     
-    const patient:Patient|null = getPatient(slug)
-    if (patient == null){
-        return "Patient Not Found"
-    }
+    
 
-    const [currentPatient,setCurrentPatient] = useState<Patient>(patient)
+    const [currentPatient,setCurrentPatient] = useState<Patient|null>(null)
 
     useEffect(() =>{
-
+        const patient:Patient|null = getPatient(slug)
+        setCurrentPatient(patient)
     }, [])
 
+
+    if (currentPatient == null){
+        return "Patient Not Found"
+    }
     return (<div>
         {currentPatient.name}
 
