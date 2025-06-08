@@ -1,29 +1,53 @@
 import patients from "@/data/patients";
 import Link from "next/link"
 
+import "./home.css"
+
+
+
 export default function Home() {
   return (
-   <div>
+   <div className="main">
     <h1>Patient Records</h1>
-    <div className="patients">
-      {patients.map((patient,index) =>(
-        <Link href={`/patient/${patient.patientID}`} key={index}>
-        <div  className="patient-record">
-          <div className="patient-ID">
-            {patient.patientID}
-          </div>
-          <div className="patient-name">
-            {patient.name}
-          </div>
+    <table className="patients">
+      <thead>
+  <tr className="header">
+          <th>ID</th>
+          <th>Name</th>
+          <th>Date of birth</th>
 
+        </tr>
+      </thead>
+      
+      <tbody>
+        
+      {patients.map((patient,index) =>(
+        
+        <tr
+          className="patient-record"
+        >
+          
+          <td className="patient-ID">
+            <Link href={`/patient/${patient.patientID}`} key={index}></Link>
+            {patient.patientID}
+          </td>
+          <td className="patient-name">
+            <Link href={`/patient/${patient.patientID}`} key={index}></Link>
+            {patient.name}
+          </td>
+          <td>
+        <Link href={`/patient/${patient.patientID}`} key={index}> 
           {patient.dob.toLocaleDateString()}
 
-        </div>
+          </Link>
+          </td>
 
-        </Link>
+        </tr>
+
       ))}
+      </tbody>
 
-    </div>
+    </table>
     </div>
   );
 }
