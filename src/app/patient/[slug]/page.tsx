@@ -21,9 +21,6 @@ function getPatient(patientID:string){
 
 
 function PatientPage({params: {slug}}:PatientPageProps) {
-    
-    
-
     const [currentPatient,setCurrentPatient] = useState<Patient|null>(null)
 
     useEffect(() =>{

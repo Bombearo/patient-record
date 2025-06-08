@@ -1,5 +1,5 @@
 import patients from "@/data/patients";
-
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -7,7 +7,8 @@ export default function Home() {
     <h1>Patient Records</h1>
     <div className="patients">
       {patients.map((patient,index) =>(
-        <div key={index} className="patient-record">
+        <Link href={`/patient/${patient.patientID}`} key={index}>
+        <div  className="patient-record">
           <div className="patient-ID">
             {patient.patientID}
           </div>
@@ -18,6 +19,8 @@ export default function Home() {
           {patient.dob.toLocaleDateString()}
 
         </div>
+
+        </Link>
       ))}
 
     </div>
