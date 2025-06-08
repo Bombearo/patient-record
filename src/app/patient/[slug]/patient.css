@@ -1,0 +1,22 @@
+.appointments{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.appointments > *{
+    padding:2rem;
+    
+}
+
+.appointment-record{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.appointment-record > div{
+    width:25%;
+    justify-self: center;
+}

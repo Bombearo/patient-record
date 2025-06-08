@@ -5,6 +5,7 @@ import {Patient} from "@/types/patient"
 import { Appointment } from "@/types/appointment"
 import {useEffect, useState, use} from "react"
 import PatientRecord from "@/features/components/patientRecord"
+import "./patient.css"
 
 interface PatientPageProps{
     params:Promise<{slug:string}>
@@ -63,18 +64,42 @@ function PatientPage({params}:PatientPageProps) {
         return "Patient Not Found"
     }
     return (<div>
-        <PatientRecord patient={currentPatient} key={0}/>
+        
         <div>
-            {patientAppointments && patientAppointments.map((app,index) => (
-                <div key={index}>
-                    {app.id}
-                    {app.status}
-                    {app.datetime.toLocaleDateString()}
-                    {app.datetime.toLocaleTimeString()}
-                    
+            <h1>Patient Records for {currentPatient.name}</h1>
+            <PatientRecord patient={currentPatient} key={0}/>
+        </div>
+        
+        <div>
+            <h2>Appointments for {currentPatient.name}</h2>
+            <div className="appointments">
+                <div className="appointment-record">
+                    <div>AppointmentID</div>
+                <div>Status</div>
+                <div>Date</div>
+                <div>Time</div>
 
                 </div>
+                
+            
+            {patientAppointments && patientAppointments.map((app,index) => (
+                <div key={index} className="appointment-record">
+                    <div>
+                    {app.id}
+                    </div>
+                    
+                    <div>
+                        {app.status}
+                    </div>
+                    <div>
+                    {app.datetime.toLocaleDateString()}
+                    </div>
+                    <div>
+                    {app.datetime.toLocaleTimeString()}
+                    </div>
+                </div>
             ))}
+            </div>
         </div>
     </div>  );
 }
