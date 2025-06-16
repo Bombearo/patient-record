@@ -1,5 +1,5 @@
 "use client"
-import patients from "@/data/patients"
+import {patientsById} from "@/data/patients"
 import appointments from "@/data/appointments"
 import {Patient} from "@/types/patient"
 import { Appointment } from "@/types/appointment"
@@ -14,12 +14,8 @@ interface PatientPageProps{
 }
 
 function getPatient(patientID:string){
-    const possiblePeople:Patient[] = patients.filter((person) => {return person.patientID === patientID})
-    if (possiblePeople.length === 0){
-        return null;
-    }
-    return possiblePeople[0]
-
+    const patient = patientsById[patientID];
+    return patient;
 }
 
 function getAppointments(patientID:string){

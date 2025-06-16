@@ -1,6 +1,6 @@
 import { Patient } from '@/types/patient';
 
-const patients: Patient[] = [
+export const patients: Patient[] = [
   {
     name: 'John Doe',
     dob: new Date('1980-01-01'),
@@ -63,4 +63,11 @@ const patients: Patient[] = [
   },
 ];
 
-export default patients;
+
+export const patientsById:Record<string,Patient> = {}
+
+for (let patient of patients){
+  patientsById[patient.patientID] = patient;
+}
+
+

@@ -6,15 +6,14 @@ import "./patientRecord.css"
 
 interface PatientRecordProps{
     patient:Patient,
-    key:number
 }
 
-function PatientRecord({patient,key}:PatientRecordProps) {
+function PatientRecord({patient}:PatientRecordProps) {
     const [isHover, setHover] = useState(false);
 
     return <Link href={`/patient/${patient.patientID}`}>
           <div
-          key={key}
+          
           className={"patient-record" + (isHover?" hover":"")}
           onMouseEnter={()=>setHover(true)}
           onMouseLeave={()=>setHover(false)}
